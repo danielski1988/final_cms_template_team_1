@@ -1,0 +1,243 @@
+body{
+    background: #7dbde3;
+}
+
+.navbar a,
+{
+    color: white;
+}
+
+.navbar-brand{
+    font-size: 1.5em;
+    font-weight: 100;
+    color: white !important;
+
+    img{
+        max-height: 25px;
+    }
+}
+
+.sidebar a
+{
+    color: white;
+    background-color: #7dbde3;
+}
+
+
+.sidebar li .active{
+    background-color: #278fce;
+}
+
+.navbar{
+    background-color: $brand-primary;
+    position: fixed;
+    width: 100%;
+    border: 0px;
+}
+
+#page-heading{
+    margin-top: 80px;
+}
+
+ .sidebar a:hover, .navbar .dropdown a:focus{
+     background-color: #278fce !important;
+ }
+
+.page-container{
+    margin-top: 10px;
+    margin-left: 40px;
+    min-height: 100vh;
+}
+
+h2{
+    text-transform: uppercase;
+    font-size: 2.5em;
+    padding: 10px 0px;
+}
+
+h3{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #555;
+    margin: 5px;
+}
+
+.details{
+    padding: 0px;
+    margin: 0px;
+    color: #888;
+}
+
+.lead-details{
+    padding: 0px;
+    margin: 0px;
+    color: #555;
+    padding-top: 15px;
+    font-size: 1.3em;
+}
+
+.subtitle{
+    color: $brand-primary;
+    font-size: 1.4em;
+    font-weight: 100;
+    text-transform: uppercase;
+}
+
+.card{
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+    border-bottom: 4px solid #ddd;
+    header{
+        font-weight: 100;
+        font-size: 1.1em;
+        color: #555;
+        text-transform: uppercase;
+    }
+    .main{
+        font-size: 3em;
+        font-weight: 100;
+        color: $brand-primary;
+    }
+}
+
+#banner{
+    margin-top: 30px;
+    padding: 60px 0px;
+    color: white;
+    background-color: $brand-primary;
+
+    img{
+        width: 100%;
+        max-width: 125px;
+    }
+
+    #banner-content{
+        padding: 10px 40px;
+    }
+
+    h1{
+        font-size: 4em;
+        font-weight: bold;
+    }
+    .sub{
+        padding: 20px 0px;
+        font-size: 1.3em;
+        font-weight: thin;
+    }
+
+    #signup{
+        width: 200px !important; 
+        margin: 20px !important;
+        padding: 10px !important;
+        a{
+            width: 100% !important;
+        }
+    }
+}
+
+footer{
+    z-index: 1000001;
+    position: absolute;
+    bottom: 40px;
+}
+
+// #features{
+//     h2{
+//         text-transform: none;
+//         font-weight: bold;
+//     }
+//     .col-sm-4{
+//         font-size: 1.5em;
+//         text-align: center;
+//         i{
+//             font-size: 5em;
+//             padding: 20px 0px;
+//             display: block;
+//             color: $brand-primary;
+//         }
+//     }
+//     .col-sm-5{
+//         padding: 0px 20px;
+//         margin-top: 40px;
+//         font-size: 1.3em;
+//         color: #888;
+//     }
+// }
+
+// #about-us{
+//     h2{
+//         text-transform: none;
+//         font-weight: bold;
+//     }
+//     p{
+//         padding: 0px 20px;
+//         margin: 40px 0px;
+//         font-size: 1.3em;
+//         color: #888;
+//     }
+// }
+
+
+#commentform{
+    display:none;
+}
+
+.alert{
+    position: absolute;
+    z-index: 1003;
+    left: calc(50vw - 135px);
+    top: 40px;
+    border: none;
+    width: 270px;
+}
+
+.logo-img{
+    padding-top: 30px;
+    margin-left: 50px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.attendance-card{
+    margin: 3px;
+    padding: 1px;
+    border-radius: 5px;
+    .roll-no{
+        font-size: 3em;
+        // padding: 4px;
+    }
+
+    span{
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+    .name{
+        text-transform: capitalize;
+    }
+}
+
+
+
+@media (max-width: 768px) { 
+    #page-heading{
+        margin-top: 140px;
+    }
+
+    #banner{
+        margin-top: 60px;
+    }
+
+    .attendance-card{
+        margin: 3px;
+        .roll-no{
+            font-size: 2em;
+        }
+        .name{
+            font-size: 0.9em;
+        }
+    }
+ }
+ 

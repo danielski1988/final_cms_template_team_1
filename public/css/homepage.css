@@ -1,0 +1,17 @@
+body{
+    background: #278fce !important;
+}
+
+img{
+    max-height: 35px !important;
+}
+
+.logo-header{
+    background-image: url('img/landinglogo.png');
+    height: 70vh;
+    max-width: 800px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+
+}

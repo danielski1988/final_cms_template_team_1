@@ -1,0 +1,205 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);.navbar a {
+  color: white;
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  font-weight: 100;
+  color: white !important;
+}
+
+.navbar-brand img {
+  max-height: 25px;
+}
+
+.sidebar a {
+  color: #555;
+}
+
+.sidebar li .active {
+  background-color: #dbdbdb;
+}
+
+.navbar {
+  background-color: #278fce;
+  position: fixed;
+  width: 100%;
+  border: 0px;
+}
+
+#page-heading {
+  margin-top: 80px;
+}
+
+.navbar .dropdown a:hover,
+.navbar .dropdown a:focus {
+  background-color: #485ba8 !important;
+}
+
+.page-container {
+  margin-top: 10px;
+  margin-left: 40px;
+  padding-bottom: 40px;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-size: 2.5em;
+  padding: 10px 0px;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #555;
+  margin: 5px;
+}
+
+.details {
+  padding: 0px;
+  margin: 0px;
+  color: #888;
+}
+
+.lead-details {
+  padding: 0px;
+  margin: 0px;
+  color: #555;
+  padding-top: 15px;
+  font-size: 1.3em;
+}
+
+.subtitle {
+  color: #278fce;
+  font-size: 1.4em;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.card {
+  background-color: #f8f8f8;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  border-bottom: 4px solid #ddd;
+}
+
+.card header {
+  font-weight: 100;
+  font-size: 1.1em;
+  color: #555;
+  text-transform: uppercase;
+}
+
+.card .main {
+  font-size: 3em;
+  font-weight: 100;
+  color: #278fce;
+}
+
+#banner {
+  margin-top: 30px;
+  padding: 60px 0px;
+  color: white;
+  background-color: #278fce;
+}
+
+#banner img {
+  width: 100%;
+  max-width: 125px;
+}
+
+#banner #banner-content {
+  padding: 10px 40px;
+}
+
+#banner h1 {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+#banner .sub {
+  padding: 20px 0px;
+  font-size: 1.3em;
+  font-weight: thin;
+}
+
+#banner #signup {
+  width: 200px !important;
+  margin: 20px !important;
+  padding: 10px !important;
+}
+
+#banner #signup a {
+  width: 100% !important;
+}
+
+footer {
+  z-index: 1000001;
+  position: absolute;
+  bottom: 40px;
+}
+
+#commentform {
+  display: none;
+}
+
+.alert {
+  position: absolute;
+  z-index: 1003;
+  left: calc(50vw - 135px);
+  top: 40px;
+  border: none;
+  width: 270px;
+}
+
+.logo-img {
+  padding-top: 30px;
+  margin-left: 50px;
+  min-width: 100px;
+  text-align: center;
+}
+
+.attendance-card {
+  margin: 3px;
+  padding: 1px;
+  border-radius: 5px;
+  height: 110px;
+}
+
+.attendance-card .roll-no {
+  font-size: 3em;
+}
+
+.attendance-card span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.attendance-card .name {
+  text-transform: capitalize;
+}
+
+@media (max-width: 768px) {
+  #page-heading {
+    margin-top: 140px;
+  }
+
+  #banner {
+    margin-top: 60px;
+  }
+
+  .attendance-card {
+    margin: 3px;
+  }
+
+  .attendance-card .roll-no {
+    font-size: 2em;
+  }
+
+  .attendance-card .name {
+    font-size: 0.9em;
+  }
+}
+

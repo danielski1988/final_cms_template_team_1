@@ -1,0 +1,46 @@
+
+.onoffswitch-ct {
+    position: relative; width: 130px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-ct-checkbox {
+    display: none;
+}
+.onoffswitch-ct-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-ct-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-ct-inner:before, .onoffswitch-ct-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-ct-inner:before {
+    content: "Autofill Off";
+    padding-left: 10px;
+    background-color: #d9534f; color: #FFFFFF;
+}
+.onoffswitch-ct-inner:after {
+    content: "Autofill On";
+    padding-right: 10px;
+    background-color: #5cb85c; color: #FFFFFF;
+    text-align: right;
+}
+.onoffswitch-ct-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 96px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-ct-checkbox:checked + .onoffswitch-ct-label .onoffswitch-ct-inner {
+    margin-left: 0;
+}
+.onoffswitch-ct-checkbox:checked + .onoffswitch-ct-label .onoffswitch-ct-switch {
+    right: 0px; 
+}
