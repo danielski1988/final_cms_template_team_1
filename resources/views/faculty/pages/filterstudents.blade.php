@@ -31,6 +31,9 @@
   }
 </style>
 
+{{--i am ninad rao--}}
+{{--comment for mentors--}}
+
 <div class="container-fluid">
   <div class="jumbotron medium-height">
     <div class="row">
