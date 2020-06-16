@@ -1,5 +1,6 @@
 @extends('student.layouts.dashboard')
-
+{{-- I'm Sreekesh Iyer --}}
+{{--I am a Student--}}
 @section('section')
 
     
@@ -10,7 +11,7 @@
             <?php $var = session('uid') ?>
             @foreach($mentordata as $md)
                 <?php $m_id = $md->e_id ?>
-                <b>Name : </b>{{$md->first_name}} {{$md->last_name}}<br>
+                <b>Name : </b>{{$md->first_name}} {{$md->last_name}}
                 <b>E-mail : </b> <a href="mailto:{{$md->email}}">{{$md->email}}</a>
             @endforeach
         </div>
@@ -110,8 +111,8 @@
                         <td>
                             <div class="row">
                                 @if($md->created_by == session('uid'))
-                                <div class="col-md-6">
-                                    <a class="btn btn-warning btn-block" href="mentor/{{$md->id}}/edit">Edit</a>  
+                                <div class="col-md-5">
+                                    <a class="btn btn-warning" href="mentor/{{$md->id}}/edit">Edit</a>  
                                 </div>
                                 <div class="col-md-6">
                                     {!!Form::open(['action' => ['StudentsController@destroy',$md->id ], 'method' => 'POST']) !!}
