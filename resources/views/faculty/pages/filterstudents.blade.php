@@ -34,7 +34,6 @@
   }
 </style>
 
-{{-- Heading --}}
 <div class="container-fluid">
   <div class="jumbotron medium-height">
     <div class="row">
