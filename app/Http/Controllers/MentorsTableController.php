@@ -15,6 +15,8 @@ class MentorsTableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // index --> Gets mentees of selected mentor
     public function index()
     {
         $departments = Department::all();
@@ -37,6 +39,8 @@ class MentorsTableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //  show --> Information of mentors
     public function show($id)
     {
         $mentorInfo = Staff::find($id);

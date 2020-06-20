@@ -1,3 +1,5 @@
+
+{{-- Page for selectiong students for assignment of mentor --}}
 @extends('faculty.layouts.dashboard')
 @section('page_heading','Assign Mentor')
 @section('section')
@@ -8,8 +10,8 @@
   } 
 
   .abc {
-    max-height: 400px;
-    overflow-y: scroll;
+    max-height: 72vh;
+    overflow: auto;
   }
 
   th {
@@ -23,8 +25,8 @@
   }
 </style>
 
-
 {!! Form::open(['action'=>'AssignMentorsController@store', 'method'=>'POST']) !!}
+{{-- Heading --}}
 <div class="container-fluid">
   <div class="jumbotron">
     <div class="row">
@@ -32,6 +34,8 @@
       <div class="pull-right">
         <a href="/staff/assignmentor" class="btn btn-primary btn-md"><i class="fa fa-arrow-circle-left fa-lg" aria-hidden="true"></i></a>
         &nbsp;&nbsp;&nbsp;
+        {{-- Assign / Edit button --}}
+        {{-- src => toassign.blade.php --}}
         <button type="submit" class="btn btn-success btn-md">Assign / Edit</button>
       </div>
     </div>
@@ -42,7 +46,7 @@
 
 {{-- Table Layout --}}
 
-  <div class="container-fluid abc" >
+<div class="container-fluid abc" >
   <table class="table table-hover sortable-table">
     <thead>
       <tr>
@@ -53,12 +57,13 @@
         <th><b> Division </b> </th>
         <th><b> Roll no. </b></th>
         <th><b> Name </b></th>
-        <th><b> Mentors </b>&nbsp;{!! Form::checkbox('notassigned[]', 1, false, ['class' => 'large-checkbox']) !!}</th>
+        {{-- <th><b> Mentors </b>&nbsp;{!! Form::checkbox('notassigned[]', 1, false, ['class' => 'large-checkbox']) !!}</th> --}}
+        <th><b>Mentor</b> </th>
       </tr>
     </thead>
     <tbody>
       @foreach ($students as $student)
-      {{-- Storing Name --}}
+      {{-- Storing Names of Mentors --}}
         @foreach ($mentors as $mentor)
           @if(($mentor->e_id) == ($student->mentor_id))
             <?php
@@ -71,6 +76,7 @@
 
       {{-- Displaying --}} 
       <tr>
+        {{-- Store array of 'uid' of selected students --}}
         <td>{!! Form::checkbox('selected_students[]', $student->uid, false, ['class' => 'large-checkbox']) !!} </td>
         <td> {{$student->uid}} </td>
         <td><a href="/staff/assignmentor/{{$student->uid}}" class="btn btn-default btn-sm">Info</a></td>
@@ -93,12 +99,12 @@
           </div>
           @endif
         </td>
+        {{--  --}}
       </tr>
       @endforeach
     </tbody>
-
-    </table>
-  </div>
+  </table>
+</div>
 
 {!! Form::close() !!}
 

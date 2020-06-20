@@ -24,62 +24,55 @@ class ToAssignController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  Make changes in database
     public function store(Request $request)
     {
         $departments = Department::all();
-        // Functionality of Check-boxes
+
+        // Gets array of 'uid' of selected students
         $selectedStudent = $request->get('selected_student');
 
-        if($request->input('mentor_id') != null)
-        {
         // Check if mentor is already present in the table
-        $cmsRolesAll = Role::all();
-        $isAssigned=0;
-        $addToRoles = 0;
-        foreach ($cmsRolesAll as $cmsRole) {
-            if (($cmsRole->e_id==$request->input('mentor_id')) && ($cmsRole->roles_id==22)) {
-                $addToRoles = 1;
+        if($request->input('mentor_id') != null) {
+            $cmsRolesAll = Role::all();
+            $isAssigned=0;
+            $addToRoles = 0;
+
+            foreach ($cmsRolesAll as $cmsRole) {
+                if (($cmsRole->e_id==$request->input('mentor_id')) && ($cmsRole->roles_id==22)) {
+                    $addToRoles = 1;
+                }
+            }
+
+            //Add the mentor in the cms_roles table if not present already
+            $cmsRolesCol = new Role;
+            if ($addToRoles==0) {
+                $cmsRolesCol->roles_id = 22;
+                $cmsRolesCol->e_id = $request->input('mentor_id');
+                $cmsRolesCol->save();
+            }
+
+            // Assigning (student's mentor_id) as (e_id of mentor)
+            foreach($selectedStudent as $selected) {
+                $student = Student::where('uid',$selected)->get();
+
+                foreach ($student as $s) {
+                    $s->mentor_id = $request->input('mentor_id');
+                    $s->save();
+                    $isAssigned=1;
+                }
             }
         }
-        $cmsRolesCol = new Role;
-
-        //Add the mentor in the cms_roles table if not present already
-        if ($addToRoles==0){
-            $cmsRolesCol->roles_id = 22;
-            $cmsRolesCol->e_id = $request->input('mentor_id');
-            $cmsRolesCol->save();
+        else {
+            $isAssigned=0;
         }
-
-        // Assigning (student's mentor_id) as (e_id of mentor)
-        foreach($selectedStudent as $selected) {
-            $student = Student::where('uid',$selected)->get();
-
-            foreach ($student as $s) {
-                $s->mentor_id = $request->input('mentor_id');
-                $s->save();
-                $isAssigned=1;
-            }
-        }
-    }
-    else
-    {
-        $isAssigned=0;
-    }
+        // Redirect to previous page with message
         if ($isAssigned==1 ) {
             return redirect('/staff/filterstudents')->with('success', 'Mentor Assigned');
         }
@@ -99,40 +92,6 @@ class ToAssignController extends Controller
         $students = Student::where('uid',$id)->get();
         $mentors = Staff::all();
         return view('faculty.pages.toassign')->with('mentors', $mentors)->with('students', $students);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 
 }

@@ -1,3 +1,4 @@
+{{-- Display stundets info --}}
 @extends('faculty.layouts.dashboard')
 @section('page_heading','Student Information')
 @section('section')

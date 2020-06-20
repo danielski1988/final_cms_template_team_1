@@ -16,15 +16,17 @@ class FilterStudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // index --> DISPLAY page of students after filtering
     public function index()
     {
         $mentors = Staff::all();
         $students = DB::table('student_allotment')
                     ->join('student', 'student.uid', '=', 'student_allotment.uid')
                     ->join('term', 'term.term_id', '=', 'student_allotment.term_id')
-                    ->where('term.branch',session('department_id'))
-                    ->where('term.semester', session('semester'))
-                    ->where('student_allotment.division', session('division'))
+                    ->where('term.branch',session('department_id')) // checks branch
+                    ->where('term.semester', session('semester')) // checks semester
+                    ->where('student_allotment.division', session('division')) // checks division
                     ->get();
 
         return view('faculty.pages.assignmentor')->with('mentors', $mentors)->with('students', $students);
@@ -37,20 +39,26 @@ class FilterStudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // store --> 
     public function store(Request $request)
     {
+        // variable for storing selected semester and division
         session(["semester"=>$request->input('semester')]);
         session(["division"=>$request->input('division')]);
+
         $semester = $request->input('semester');
         $division = $request->input('division');
         $mentors = Staff::all();
         $students = DB::table('student_allotment')
                     ->join('student', 'student.uid', '=', 'student_allotment.uid')
                     ->join('term', 'term.term_id', '=', 'student_allotment.term_id')
-                    ->where('term.branch',session('department_id'))
-                    ->where('term.semester', $semester)
-                    ->where('student_allotment.division', $division)
+                    ->where('term.branch',session('department_id')) // checks branch
+                    ->where('term.semester', $semester) // checks semester
+                    ->where('student_allotment.division', $division) // checks division
                     ->get();
+
+        // Checks presence of students in selected combination of branch, sem, division
         $count=0;
         foreach($students as $s)
         {

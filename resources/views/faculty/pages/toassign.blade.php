@@ -1,33 +1,34 @@
+{{-- Page for assigning mentors --}}
 @extends('faculty.layouts.dashboard')
 @section('page_heading','Assignment')
 @section('section')
 {{-- messages --}}
 @include('faculty.pages.messages')
-{{-- -------- --}}
+
 <style>
   .head{
     font-size: 40px;
   }
   .abc {
-    max-height: 600px;
-    overflow-y: scroll;
+    max-height: 72vh;
+    overflow: auto;
   }
 </style>
 
-
- {!! Form::open(['action'=>'ToAssignController@store', 'method'=>'POST']) !!}
+{!! Form::open(['action'=>'ToAssignController@store', 'method'=>'POST']) !!}
+{{-- Heading --}}
 <div class="container-fluid">
   <div class="jumbotron">
     <div class="row">
-      {{-- <div> --}}
         <strong class="head">Choose Mentor</strong>
-      {{-- </div> --}}
       <div class="pull-right">
         {!! Form::submit('Submit', ['class'=>'btn btn-primary btn-lg']) !!}
       </div>
     </div>
   </div>
 </div>
+
+{{-- Sending array of 'uid' of selected students --}}
 @foreach ($selectedStudents as $m)
   {!! Form::hidden('selected_student[]', $m) !!}
 @endforeach
@@ -46,7 +47,6 @@
           &nbsp;
           {{$mentor->first_name}}
           {{$mentor->last_name}}
-          {{-- Number of mentees assigned --}}
         </div>
       </span>
       @endif

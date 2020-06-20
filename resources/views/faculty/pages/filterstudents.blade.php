@@ -1,7 +1,9 @@
+{{-- Filtering Students by SEM and Division --}}
 @extends('faculty.layouts.dashboard')
 @section('page_heading','Assign Mentor')
 @section('section')
 
+{{-- Storing of logged in Mentor-Administrator department name --}}
 <?php
   for ($i=1; $i <=6 ; $i++) { 
     foreach ($departments as $department ) {
@@ -12,6 +14,7 @@
     }
   }
 ?>
+
 <style>
   span.cms-head {
     font-weight: bold;
@@ -23,7 +26,7 @@
   }
 
   span.cms-gray-text {
-    color: #bcbcbc;
+    color: #444444  ;
   }
 
   hr.cms-mt-0 {
@@ -31,6 +34,7 @@
   }
 </style>
 
+{{-- Heading --}}
 <div class="container-fluid">
   <div class="jumbotron medium-height">
     <div class="row">
@@ -38,9 +42,8 @@
     </div>
   </div>
 </div>
-{!! Form::open(['action'=>'FilterStudentsController@store', 'method'=>'POST']) !!}
 
-{{-- Sorting Students --}}
+{!! Form::open(['action'=>'FilterStudentsController@store', 'method'=>'POST']) !!}
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -49,8 +52,8 @@
     </div>
   </div>
 
+  {{-- Filtering Students based on SEM and Division --}}
   <div class="row">
-
     <div class="col-md-4">
       <select name="semester" id="semester" class="form-control" disabled placeholder="{{$dept}}">
         <option value='{{$dept}}'>{{$dept}}</option>
@@ -78,10 +81,10 @@
       </select>
     </div>
     <div class="col-md-2">
+      {{-- src => assignmentor.blade.php --}}
       {!! Form::submit('PROCEED', ['class'=>'btn btn-success btn-block']) !!}
     </div>
-
   </div>
-
+  {{--  --}}
 </div>
 @endsection

@@ -16,6 +16,8 @@ class AssignMentorsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    // index --> REDIRECT to display students after filtering 
     public function index()
     {
         $departments = Department::all();
@@ -36,6 +38,8 @@ class AssignMentorsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  store --> Gets array of 'uid' of students from assignmentor.blade.php
     public function store(Request $request)
     {
         
@@ -54,6 +58,8 @@ class AssignMentorsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    // show --> Display information of students 
     public function show($id)
     {
         // for showing student info
